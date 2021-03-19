@@ -1,0 +1,13 @@
+.bg-blur{
+    backdrop-filter: blur(2px);
+}
+.cursor {
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition-property:  opacity, background-color, transform, mix-blend-mode;
+  }
+  
+  html, body {
+    cursor: none;
+    background-color: #121212;
+}
