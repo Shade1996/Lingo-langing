@@ -15,11 +15,17 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@react-three/drei": "^3.11.1",
+    "@types/three": "^0.126.1",
     "fontsource-roboto": "^4.0.0",
     "react": "^17.0.1",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0",
+    "react-three-fiber": "^5.3.19",
+    "simplebar-react": "^2.3.0",
     "tailwindcss": "^2.0.3",
+    "three": "^0.126.1",
     "valtio": "^0.8.2"
   },
   "devDependencies": {
@@ -28,6 +34,7 @@
     "@babel/preset-react": "^7.12.13",
     "@hot-loader/react-dom": "^17.0.1+4.13.0",
     "@types/react": "^17.0.3",
+    "@types/react-custom-scrollbars": "^4.0.7",
     "@types/react-dom": "^17.0.1",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",

@@ -1,40 +1,61 @@
 import React, { useEffect, useState } from 'react'
 
+const useEvent = (eventName: any, cb: (e: MouseEvent) => void) => {
+    useEffect(() => {
+        document.addEventListener(eventName, cb)
+
+        return () => {
+            document.removeEventListener(eventName, cb)
+        }
+    }, [])
+}
+
 export default function Cursor() {
     const [position, setPosition] = useState({x: 0, y: 0})
     const [hidden, setHidden] = useState(false)
     const [clicked, setClicked] = useState(false);
 
-    useEffect(() => {
-        addEventListeners()
-        return () => removeEventListeners()
-    }, [])
-
-        const addEventListeners = () => {
-            document.addEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
-            document.addEventListener("mouseenter", ()=>setHidden(false))
-            document.addEventListener("mouseleave" , ()=>setHidden(true))
-            document.addEventListener("mouseup", ()=>setClicked(false))
-            document.addEventListener("mousedown", ()=>setClicked(true))
-        }
+    useEvent("mousemove", (e: MouseEvent)=>setPosition({x: e.clientX, y: e.clientY}))
+    useEvent("mouseenter", ()=>setHidden(false))
+    useEvent("mouseleave", ()=>setHidden(true))
+    useEvent("mouseup", ()=>setClicked(false))
+    useEvent("mousedown", ()=>setClicked(true))
     
-        const removeEventListeners = () => {
-            document.removeEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
-            document.removeEventListener("mouseenter", ()=>setHidden(false))
-            document.removeEventListener("mouseleave" , ()=>setHidden(true))
-            document.removeEventListener("mouseup", ()=>setClicked(false))
-            document.removeEventListener("mousedown", ()=>setClicked(true))
-        }
+
+    // useEffect(() => {
+    //     const onMouseMove = (e: MouseEvent)=>setPosition({x: e.clientX, y: e.clientY})
+    //     document.addEventListener("mousemove", onMouseMove)
+
+    //     return () => {
+    //         document.removeEventListener("mousemove", onMouseMove)
+    //     }
+    // }, [])
+
+    // const addEventListeners = () => {
+    //     document.addEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
+    //     document.addEventListener("mouseenter", ()=>setHidden(false))
+    //     document.addEventListener("mouseleave" , ()=>setHidden(true))
+    //     document.addEventListener("mouseup", ()=>setClicked(false))
+    //     document.addEventListener("mousedown", ()=>setClicked(true))
+    // }
+
+    // const removeEventListeners = () => {
+    //     document.removeEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
+    //     document.removeEventListener("mouseenter", ()=>setHidden(false))
+    //     document.removeEventListener("mouseleave" , ()=>setHidden(true))
+    //     document.removeEventListener("mouseup", ()=>setClicked(false))
+    //     document.removeEventListener("mousedown", ()=>setClicked(true))
+    // }
     
     return (
         <>
             <div className={`${hidden 
             ? "opacity-0" 
-            :"cursor w-10 h-10 border-2 border-gray-100 fixed transform -translate-x-1/2 -translate-y-1/2  pointer-events-none z-50 rounded-full transition-all ease-linear active:bg-white scale-90"}`}
+            :"cursor w-20 h-20 border-2 border-gray-100 fixed transform -translate-x-1/2 -translate-y-1/2  pointer-events-none z-50 rounded-full transition-all ease-linear active:bg-white scale-90"}`}
             style={{
                 left:`${position.x}px`,
                 top:`${position.y}px`,
-                backgroundColor:`${clicked?"#fefefe":""}`
+                backgroundColor:`${clicked?"":"#fefefe"}`
             }}/>
         </>
     )
