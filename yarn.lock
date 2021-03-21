@@ -4300,6 +4300,11 @@ postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.6:
     nanoid "^3.1.20"
     source-map "^0.6.1"
 
+postprocessing@^6.17.1, postprocessing@^6.21.1:
+  version "6.21.1"
+  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.21.1.tgz#565d3c7809767085c734c18c477e1bcdbbfc7bbd"
+  integrity sha512-b+ztV3kBLWQSXkaGBUH5FwPmQOZcactEwLDWZzI4kZzKVR4z0Tb+KEkq8FLoFeL5MD9i4RE8PDUNfZXI0UhwwQ==
+
 prefix-style@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/prefix-style/-/prefix-style-2.0.1.tgz#66bba9a870cfda308a5dc20e85e9120932c95a06"
@@ -4483,6 +4488,14 @@ react-merge-refs@^1.0.0, react-merge-refs@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
   integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
+
+react-postprocessing@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-postprocessing/-/react-postprocessing-1.4.0.tgz#caba52f4f6efc839bfbdeed5414f4dd288db0fa4"
+  integrity sha512-IcUfFSGigmZ9E8u07A6WgB9uVYpwiFL8Tvycadcbu0vzI0bbqthikoNKD5zDWv0h5mnUu/y95kIDR5AViup0Fw==
+  dependencies:
+    postprocessing "^6.17.1"
+    react-merge-refs "^1.1.0"
 
 react-reconciler@0.26.1:
   version "0.26.1"

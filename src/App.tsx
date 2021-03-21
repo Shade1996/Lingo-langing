@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from 'react'
-import { useCamera } from "@react-three/drei"
 import { Canvas, useThree } from 'react-three-fiber'
 //@ts-ignore
 import Logo from './assets/Logo.png'
@@ -8,8 +7,12 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import Box from './components/Box/Box'
 import { ThreeCamera } from './components/ThreeCamera'
-
+//@ts-ignore
+import circleSrc from './assets/circle.gif'
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from 'react-postprocessing'
+import Torus from './components/Torus/Torus';
 export default function App() {
+	
 	const Title:React.FC =({ children }) =>{
 		return(
 			<div className="text-md opacity-70 transition duration-500 ease-in-out  hover:bg-blue-600 rounded-xl p-2">
@@ -58,20 +61,24 @@ export default function App() {
 								<Slogan key={i}>{char}</Slogan>
 							))}
 						</div>
-						<div className="absolute inset-0  w-full overflow-hidden flex justify-end">
-							<Canvas className="max-w-4xl" >
-								{/* <ThreeCamera /> */}
+						
+					</div>
+					<div className="absolute inset-0  w-full overflow-hidden flex justify-end z-0">
+							<Canvas className="w-full">
 								<ambientLight />
 								<pointLight position={[10, 10, 10]} />
-								<Box position={[0, 0, 0]} />
+								{/* <Box position={[2, 0, 0]} /> */}
 								{/* <Box position={[1.2, 0, 0]} /> */}
+								<Torus position={[1,0,0]} />
+								<EffectComposer>
+									<Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+								</EffectComposer>
 							</Canvas>
-						</div>
 					</div>
 					
 				</Page>
 				<Page>
-
+					
 				</Page>
 			</SimpleBar>
 			<header className="w-full h-24 absolute top-0 flex bg-black bg-opacity-80 text-white">

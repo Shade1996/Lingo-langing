@@ -45,6 +45,14 @@ const config = {
         use: 'file-loader'
       },
       {
+        test: /\.(jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.png$/,
         use: [
           {
