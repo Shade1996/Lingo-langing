@@ -21,31 +21,6 @@ export default function Cursor() {
     useEvent("mouseup", ()=>setClicked(false))
     useEvent("mousedown", ()=>setClicked(true))
     
-
-    // useEffect(() => {
-    //     const onMouseMove = (e: MouseEvent)=>setPosition({x: e.clientX, y: e.clientY})
-    //     document.addEventListener("mousemove", onMouseMove)
-
-    //     return () => {
-    //         document.removeEventListener("mousemove", onMouseMove)
-    //     }
-    // }, [])
-
-    // const addEventListeners = () => {
-    //     document.addEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
-    //     document.addEventListener("mouseenter", ()=>setHidden(false))
-    //     document.addEventListener("mouseleave" , ()=>setHidden(true))
-    //     document.addEventListener("mouseup", ()=>setClicked(false))
-    //     document.addEventListener("mousedown", ()=>setClicked(true))
-    // }
-
-    // const removeEventListeners = () => {
-    //     document.removeEventListener("mousemove", (e)=>setPosition({x: e.clientX, y: e.clientY}))
-    //     document.removeEventListener("mouseenter", ()=>setHidden(false))
-    //     document.removeEventListener("mouseleave" , ()=>setHidden(true))
-    //     document.removeEventListener("mouseup", ()=>setClicked(false))
-    //     document.removeEventListener("mousedown", ()=>setClicked(true))
-    // }
     
     return (
         <>

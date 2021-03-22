@@ -21,6 +21,7 @@
     "postprocessing": "^6.21.1",
     "react": "^17.0.1",
     "react-custom-scrollbars": "^4.2.1",
+    "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0",
     "react-postprocessing": "^1.4.0",
