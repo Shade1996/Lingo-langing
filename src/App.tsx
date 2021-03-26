@@ -11,7 +11,8 @@ import { ThreeCamera } from './components/ThreeCamera'
 import circleSrc from './assets/circle.gif'
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from 'react-postprocessing'
 import Torus from './components/Torus/Torus';
-import {isMobile} from 'react-device-detect';
+import {isMobile, isMobileOnly} from 'react-device-detect';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const Title:React.FC =({ children }) =>{
 	return(
@@ -35,7 +36,7 @@ const Intro:React.FC =({ children }) =>{
 		</div>
 	)
 }
-const textArray =["C","o","o","p","e","r","a","t","i","o","n"]
+const textArray =["P","l","a","y"]
 
 const Page: React.FC<{ className?: string, style?:CSSProperties }> = ({ children, className, style }) => {
 	return (
@@ -56,17 +57,17 @@ export default function App() {
 						<Slogan>d</Slogan>
 						<Slogan>e</Slogan>
 						<div className="lg:ml-36 ml-4">
+							{textArray.map((char,i)=>(
+								<Slogan key={i}>{char}</Slogan>
+							))}
+						</div>
+						<div className="lg:ml-64 ml-8">
 							<Slogan>C</Slogan>
 							<Slogan>r</Slogan>
 							<Slogan>e</Slogan>
 							<Slogan>a</Slogan>
 							<Slogan>t</Slogan>
 							<Slogan>e</Slogan>
-						</div>
-						<div className="lg:ml-64 ml-8">
-							{textArray.map((char,i)=>(
-								<Slogan key={i}>{char}</Slogan>
-							))}
 						</div>
 						
 					</div>
@@ -84,16 +85,16 @@ export default function App() {
 					</div>
 					
 				</Page>
-				<div className="flex flex-col mt-16 w-full bg-yellow-400">
+				<div className="flex flex-col mt-16 w-full">
 					<Intro>
 						<div className="w-full lg:w-1/2 h-1/2 lg:h-full bg-center bg-cover" style={{
 							backgroundImage:`url(https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80)`
 						}}/>
 						<div className="py-8 px-16 text-white w-full lg:w-1/2 space-y-4">
-							<div className="font-bold text-5xl">
+							<div className="font-bold text-3xl lg:text-5xl">
 								Lorem
 							</div>
-							<div className="text-2xl">
+							<div className="text-xl lg:text-2xl">
 								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia vel nihil quaerat perspiciatis minima nam quasi incidunt, temporibus dolorum hic non magnam iste omnis id quam eveniet. Doloribus, cumque sit!
 							</div>
 						</div>
@@ -103,10 +104,10 @@ export default function App() {
 							backgroundImage:`url(https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80)`
 						}}/>
 						<div className="py-8 px-16 text-white w-full lg:w-1/2 space-y-4">
-							<div className="font-bold text-5xl">
+							<div className="font-bold text-3xl lg:text-5xl">
 								Lorem
 							</div>
-							<div className="text-2xl">
+							<div className="text-xl lg:text-2xl">
 								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia vel nihil quaerat perspiciatis minima nam quasi incidunt, temporibus dolorum hic non magnam iste omnis id quam eveniet. Doloribus, cumque sit!
 							</div>
 						</div>
@@ -116,25 +117,26 @@ export default function App() {
 							backgroundImage:`url(https://images.unsplash.com/photo-1520583457224-aee11bad5112?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80)`
 						}}/>
 						<div className="py-8 px-16 text-white w-full lg:w-1/2 space-y-4">
-							<div className="font-bold text-5xl">
+							<div className="font-bold text-3xl lg:text-5xl">
 								Lorem
 							</div>
-							<div className="text-2xl">
+							<div className="text-xl lg:text-2xl">
 								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia vel nihil quaerat perspiciatis minima nam quasi incidunt, temporibus dolorum hic non magnam iste omnis id quam eveniet. Doloribus, cumque sit!
 							</div>
 						</div>
 					</Intro>
 				</div>
+				<footer className=" mt-16 text-center w-full h-24 bottom-0 text-white">
+				上海薛来网络科技有限公司 © 2020 版权所有<br/>
+				沪 ICP 备 19039915 号
+				</footer>
 			</SimpleBar>
 			{
-				// ()=>{
-				// if(isMobile){
-				// 	console.log("mobile")
-				// 	return <div>hello mobile</div>
-				// } return <div>123</div>
-				// }()
-			}
-			<header className="w-full h-24 absolute top-0 flex bg-black bg-opacity-80 text-white">
+				isMobile ? <header className="w-full h-24 absolute top-0 flex items-center bg-black bg-opacity-80 text-white px-4">
+					<div className="text-xl">LingoScript</div>
+					<div className="w-full"/>
+					<MenuIcon fontSize="large"/>
+				</header>:<header className="w-full h-24 absolute top-0 flex bg-black bg-opacity-80 text-white">
 					<img src={Logo} alt="Logo" className="h-full"/>
 					<div className="h-full flex items-center text-xl text-gray-200">LingoScript</div>
 					<div className="w-full" />
@@ -144,8 +146,13 @@ export default function App() {
 						<Title >Resource</Title>
 						<Title >About</Title>
 					</div>
-			</header>
-			<Cursor />
+				</header>	
+			}
+			{
+				!isMobileOnly && <Cursor />
+			}
+			
+			
 		</>
   	)
 }
